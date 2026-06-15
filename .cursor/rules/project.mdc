@@ -1,0 +1,28 @@
+---
+description: 桌球记分工具共享项目上下文
+alwaysApply: true
+---
+
+# Cursor 规则
+
+本仓库以 `AGENTS.md` 作为项目上下文的唯一主来源。
+
+修改代码前，请阅读：
+
+- `README.md`
+- `AGENTS.md`
+- `docs/project-brief.md`
+- `docs/architecture.md`
+- `docs/data-model.md`
+- `docs/ai-handoff.md`
+
+请遵守仓库边界：
+
+- 前端：`apps/web`
+- 未来服务端：`apps/api`
+- 共享领域逻辑和 schema：`packages/shared`
+
+前端改动交付前，在可行时运行 `npm run build:web`。
+
+完成较大的 AI 辅助工作后，请在 `docs/ai-handoff.md` 追加简短交接记录。
+

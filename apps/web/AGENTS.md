@@ -1,19 +1,22 @@
-# Prototype Instructions
+# 前端原型说明
 
-This frontend app lives at `apps/web` in the `billiards-score-tool` repository. Keep changes compatible with the planned multi-app layout: future backend code should live under `apps/api`, and shared domain rules/types should live under `packages/shared`.
+这个前端应用位于 `billiards-score-tool` 仓库的 `apps/web`。改动时要保持和多应用结构兼容：未来服务端代码应放在 `apps/api`，共享领域规则和类型应放在 `packages/shared`。
 
-Run the local server yourself and open the preview in the in-app browser. Do not give the user server-start instructions when you can run it.
+修改本应用前，也要阅读根目录 `AGENTS.md`。根文件负责跨工具协作规则、仓库边界、产品不变量和交接要求。
 
-Before making substantial visual changes, use the Product Design plugin's `get-context` skill when the visual source is unclear or no longer matches the current goal. When the user gives durable prototype-specific design feedback, preferences, or decisions, record them in `AGENTS.md`.
+需要运行本地服务或打开预览时，直接自己执行，不要在可以代劳时只把启动说明丢给用户。
 
-When implementing from a selected generated mock, treat that image as the source of truth for layout, component anatomy, density, spacing, color, typography, visible content, and hierarchy.
+做较大的视觉修改前，如果视觉来源不清晰或已经不匹配当前目标，使用 Product Design 插件的 `get-context` 技能先确认上下文。用户给出长期有效的原型设计反馈、偏好或决策时，记录到 `AGENTS.md`。
 
-## Current Prototype Decisions
+如果从已选定的生成稿实现界面，该图片是布局、组件结构、密度、间距、颜色、字号、可见内容和层级的事实来源。
 
-- Use the activity-ledger home structure, fast in-session score entry, and settlement/share result layout from the selected Product Design directions.
-- Import/export is global backup and restore for all records, placed under home-level data management.
-- Sharing is scoped to one activity result, with options for summary, full details, and money visibility.
-- Money conversion defaults to 1 point = 5 yuan, with activity-level settings.
-- New activity recent-player chips are sourced from historical activities and should overwrite the currently focused player-name input.
-- Round entry time should stay synced to the current time while the score draft is empty, then respect manual edits once the user changes the time.
-- Home activity duration should be calculated from activity start/end timestamps, not hardcoded sample text.
+## 当前原型决策
+
+- 使用已选定方向里的活动记录首页、快速场次录入、结算/分享结果结构。
+- 导入/导出是全局备份和恢复，放在首页层级的数据管理中。
+- 分享只针对单个活动结果，支持摘要、完整明细和金额显示控制。
+- 金额换算默认 `1 分 = 5 元`，并支持活动级设置。
+- 新建活动的最近玩家来自历史活动，点击后应覆盖当前聚焦的玩家姓名输入框。
+- 场次录入时间在分数草稿为空时应同步当前时间；用户手动修改时间后，应尊重手动值。
+- 首页活动时长应根据活动开始/结束时间计算，不能使用硬编码示例文案。
+

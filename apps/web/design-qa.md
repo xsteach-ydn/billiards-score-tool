@@ -1,57 +1,58 @@
-**Findings**
-- No actionable P0/P1/P2 findings remain.
+**发现**
+- 当前没有需要处理的 P0/P1/P2 问题。
 
-**Open Questions**
-- None for this prototype pass. Import/export placement intentionally differs from the original generated references because the user clarified that import/export is global backup/restore, while sharing is per-activity.
+**开放问题**
+- 本轮原型没有开放问题。导入/导出位置与最初生成稿不同，这是因为用户明确说明：导入/导出是全局备份/恢复，分享才是单活动结果分享。
 
-**Implementation Checklist**
-- Home uses the selected activity-ledger direction with history, active/ended filters, search, quick continue, and home-level data management.
-- Scoring uses the selected fast-entry direction with current totals, per-player steppers, quick score buttons, real-time zero-sum validation, auto-fill last player, round time, and recent rounds.
-- Settlement uses the selected result-sharing direction with default 1 point = 5 yuan, final ranking, transfer suggestions, copy-to-WeChat sharing, and continue-scoring action.
-- Global backup/restore is in home-level data management. Single-activity sharing is in the activity/settlement flow.
-- View changes reset scroll position so navigation from a scrolled list does not hide page headers.
+**实现检查清单**
+- 首页采用已选定的活动记录结构，包含历史活动、进行中/已结束筛选、搜索、快速继续和首页级数据管理。
+- 计分页采用已选定的快速录入结构，包含当前总计、玩家分数步进器、快捷分数按钮、实时零和校验、补齐最后一人、本场时间和最近记录。
+- 结算页采用已选定的结果分享结构，包含默认 `1 分 = 5 元`、最终排名、转账建议、复制到微信和继续记分。
+- 全局备份/恢复放在首页级数据管理中；单活动分享放在活动/结算流程中。
+- 视图切换会重置滚动位置，避免从已滚动列表进入新页面时标题被隐藏。
 
-**Follow-up Polish**
-- P3: Long activity names are intentionally truncated in the compact topbar. A future pass could add a title expansion affordance if real names are often longer.
-- P3: Round rows show compact inline scores and may require horizontal scrolling for 6-7 player rounds. This is acceptable for the current mobile-first prototype but could be made denser in a later pass.
+**后续优化**
+- P3：长活动名称当前会在紧凑顶部栏中截断。如果真实活动名经常更长，后续可以增加展开标题的能力。
+- P3：场次记录行使用紧凑的内联分数展示，6-7 人活动可能需要横向滚动。当前移动端优先原型可以接受，后续可继续压缩密度。
 
-source visual truth path:
+设计参考图路径：
 - /Users/dane/.codex/generated_images/019eb973-646a-7950-a163-f6d72630b0d3/ig_07e2b82c29a1c086016a2b674b29248191acb8b4c2e4975db4.png
 - /Users/dane/.codex/generated_images/019eb973-646a-7950-a163-f6d72630b0d3/ig_07e2b82c29a1c086016a2b66fc1f188191a3bc8d6486021272.png
 - /Users/dane/.codex/generated_images/019eb973-646a-7950-a163-f6d72630b0d3/ig_07e2b82c29a1c086016a2b67a2d6088191a00193ce7975d3b6.png
 
-implementation screenshot path:
+实现截图路径：
 - /Users/dane/Documents/日常工具/apps/web/qa-screenshots/implementation-home.png
 - /Users/dane/Documents/日常工具/apps/web/qa-screenshots/implementation-activity.png
 - /Users/dane/Documents/日常工具/apps/web/qa-screenshots/implementation-settlement.png
 
-viewport:
+视口：
 - 390 x 844
 
-state:
-- Home: activity ledger with all-filter selected.
-- Activity: active scoring flow with default zero-value round draft.
-- Settlement: active activity result converted into settlement view.
+状态：
+- 首页：活动记录，选中全部筛选。
+- 活动页：进行中的计分流程，默认空白分数草稿。
+- 结算页：进行中活动进入结算视图。
 
-full-view comparison evidence:
-- Home implementation matches the selected ledger direction: search, status filters, activity rows/cards, compact player score preview, default rate display, and primary create action.
-- Activity implementation matches the selected fast-entry direction: current total board, time-stamped round entry, steppers, quick score buttons, zero-sum validation, and recent records.
-- Settlement implementation matches the selected settlement direction: final ranking, money conversion, transfer suggestions, copy-to-WeChat action, and continue-scoring action.
+全页面对比证据：
+- 首页实现匹配已选定的记录方向：搜索、状态筛选、活动卡片、紧凑玩家分数预览、默认换算规则和主新建入口。
+- 活动页实现匹配已选定的快速录入方向：当前总计、带时间的场次录入、步进器、快捷分数按钮、零和校验和最近记录。
+- 结算页实现匹配已选定的结算方向：最终排名、金额换算、转账建议、复制到微信和继续记分。
 
-focused region comparison evidence:
-- Focused region pass was not separately needed because the visible surfaces are native UI controls, text rows, and lucide icons rather than custom raster assets; the viewport captures show the required hierarchy, spacing, semantic colors, and copy.
+重点区域对比证据：
+- 本轮不需要单独做重点区域截图对比，因为可见界面主要是原生 UI 控件、文本行和 lucide 图标，而不是自定义位图资源；当前视口截图已经能体现所需层级、间距、语义颜色和文案。
 
-required fidelity surfaces:
-- Fonts and typography: Uses a mobile product type stack with Chinese system fonts, readable 13-25px scale, tabular numeric scores, and no negative letter spacing.
-- Spacing and layout rhythm: Uses one grouped mobile surface per major task, 8px radii, lightweight dividers, and stable row/grid dimensions for score controls.
-- Colors and visual tokens: Uses neutral white/gray base, green for positive/action, red for negative, and distinct player colors without a one-note palette.
-- Image quality and asset fidelity: No custom image assets are required for the implemented prototype. Icons come from lucide-react.
-- Copy and content: Chinese UI copy reflects the clarified product model: global data backup/restore, per-activity sharing, 3-7 players, default 1 point = 5 yuan, match time, and zero-sum scoring.
+必要保真面：
+- 字体和排版：使用移动端产品字体栈和中文系统字体，13-25px 可读字号，数字使用表格式视觉，不使用负字距。
+- 间距和布局节奏：每个主要任务使用一个成组移动端界面，8px 圆角、轻量分割线，并为计分控件提供稳定行/网格尺寸。
+- 颜色和视觉 token：使用中性白/灰基础，绿色表示正向/操作，红色表示负向，并提供不同玩家颜色，避免单一色系。
+- 图片质量和资源保真：当前原型不需要自定义图片资源，图标来自 `lucide-react`。
+- 文案和内容：中文 UI 文案符合已澄清的产品模型：全局备份/恢复、单活动分享、3-7 人、默认 `1 分 = 5 元`、比赛时间、零和记分。
 
-patches made since previous QA pass:
-- Added scroll-to-top on view changes after QA found hidden headers when navigating from a scrolled home list.
-- Changed home section heading from a static "继续进行中" to a filter-aware title.
-- Corrected initial entry hint so an all-zero draft does not claim it can be saved while the button is disabled.
-- Increased match-time input width to prevent clipping.
+上次 QA 后的修补：
+- QA 发现从滚动后的首页列表进入页面会隐藏标题，因此增加了视图切换滚动到顶部。
+- 首页区块标题从固定的“继续进行中”改为跟随筛选状态变化。
+- 修正初始录入提示，避免全 0 草稿在按钮禁用时提示可以保存。
+- 增加比赛时间输入框宽度，避免文字裁切。
 
-final result: passed
+最终结果：通过
+
