@@ -21,9 +21,9 @@ source visual truth path:
 - /Users/dane/.codex/generated_images/019eb973-646a-7950-a163-f6d72630b0d3/ig_07e2b82c29a1c086016a2b67a2d6088191a00193ce7975d3b6.png
 
 implementation screenshot path:
-- /Users/dane/Documents/日常工具/pool-score-prototype/qa-screenshots/implementation-home.png
-- /Users/dane/Documents/日常工具/pool-score-prototype/qa-screenshots/implementation-activity.png
-- /Users/dane/Documents/日常工具/pool-score-prototype/qa-screenshots/implementation-settlement.png
+- /Users/dane/Documents/日常工具/apps/web/qa-screenshots/implementation-home.png
+- /Users/dane/Documents/日常工具/apps/web/qa-screenshots/implementation-activity.png
+- /Users/dane/Documents/日常工具/apps/web/qa-screenshots/implementation-settlement.png
 
 viewport:
 - 390 x 844
