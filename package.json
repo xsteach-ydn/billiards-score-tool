@@ -1,0 +1,15 @@
+{
+  "name": "billiards-score-tool",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm --prefix apps/web run dev",
+    "build:web": "npm --prefix apps/web run build",
+    "preview:web": "npm --prefix apps/web run preview"
+  }
+}
+
